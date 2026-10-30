@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+# runtime state written next to a widget's main.js
+.state.json
+# node_modules is committed on purpose: importing a widget copies the folder
+# as-is and never runs npm install, so the dependency has to be in the repo
+
+# local passbolt rig: exported test key + state.env
+scripts/.passbolt/

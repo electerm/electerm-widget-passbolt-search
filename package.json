@@ -1,0 +1,73 @@
+{
+  "name": "passbolt-search",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Search Passbolt entries and open connections from electerm",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "openpgp": "^6.2.2"
+  },
+  "electerm": {
+    "id": "passbolt-search",
+    "name": "Passbolt Search",
+    "description": "Search Passbolt resources by name, username, IP address, domain or URI. Your GPG key stays on this computer; passwords are decrypted locally and only when you open an entry.",
+    "version": "0.1.0",
+    "type": "frontend",
+    "submitLabel": "Connect / search",
+    "persist": true,
+    "configs": [
+      {
+        "name": "serverUrl",
+        "label": "Server URL",
+        "type": "string",
+        "required": true,
+        "placeholder": "https://passbolt.example.com",
+        "description": "Base URL of your Passbolt server."
+      },
+      {
+        "name": "userId",
+        "label": "User ID",
+        "type": "string",
+        "required": true,
+        "description": "Your Passbolt user UUID. In the web UI open Users / Manage Users & Groups, open your own user and copy the UUID from the page URL (/app/users/view/<UUID>)."
+      },
+      {
+        "name": "keyPath",
+        "label": "GPG key file",
+        "type": "file",
+        "required": true,
+        "description": "Your exported OpenPGP private key (armored .asc or binary .gpg).",
+        "filters": [
+          {
+            "name": "GPG / OpenPGP keys",
+            "extensions": [
+              "asc",
+              "gpg",
+              "pgp",
+              "key"
+            ]
+          },
+          {
+            "name": "All files",
+            "extensions": [
+              "*"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "passphrase",
+        "label": "Key passphrase",
+        "type": "password",
+        "description": "Used only to unlock the key. It is never saved and never sent to the Passbolt server."
+      },
+      {
+        "name": "query",
+        "label": "Search",
+        "type": "string",
+        "description": "Name, username, IP address, domain or URI. Leave empty to connect only."
+      }
+    ]
+  }
+}
