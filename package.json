@@ -5,6 +5,8 @@
   "description": "Search Passbolt entries and open connections from electerm",
   "main": "main.js",
   "license": "MIT",
+  "author": "ZHAO Xudong",
+  "homepage": "https://github.com/electerm/electerm-widget-passbolt-search",
   "dependencies": {
     "openpgp": "^6.2.2"
   },
