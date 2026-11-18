@@ -1,6 +1,6 @@
 {
   "name": "passbolt-search",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Search Passbolt entries and open connections from electerm",
   "main": "main.js",
@@ -10,11 +10,14 @@
   "dependencies": {
     "openpgp": "^6.2.2"
   },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
   "electerm": {
     "id": "passbolt-search",
     "name": "Passbolt Search",
     "description": "Search Passbolt resources by name, username, IP address, domain or URI. Your GPG key stays on this computer; passwords are decrypted locally and only when you open an entry.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "type": "frontend",
     "submitLabel": "Connect / search",
     "persist": true,
@@ -70,6 +73,35 @@
         "type": "string",
         "description": "Name, username, IP address, domain or URI. Leave empty to connect only."
       }
-    ]
+    ],
+    "i18n": {
+      "zh_cn": {
+        "name": "Passbolt 搜索",
+        "description": "按名称、用户名、IP 地址、域名或 URI 搜索 Passbolt 资源。GPG 私钥只留在本机；密码仅在打开条目时于本地解密。",
+        "submitLabel": "连接 / 搜索",
+        "configs": {
+          "serverUrl": {
+            "label": "服务器地址",
+            "description": "Passbolt 服务器的基础 URL。"
+          },
+          "userId": {
+            "label": "用户 ID",
+            "description": "你的 Passbolt 用户 UUID。在网页界面打开 Users / Manage Users & Groups，点自己的用户，从页面 URL (/app/users/view/<UUID>) 复制 UUID。"
+          },
+          "keyPath": {
+            "label": "GPG 私钥文件",
+            "description": "导出的 OpenPGP 私钥（armored .asc 或二进制 .gpg）。"
+          },
+          "passphrase": {
+            "label": "密钥口令",
+            "description": "仅用于解锁私钥。不会保存，也不会发送到 Passbolt 服务器。"
+          },
+          "query": {
+            "label": "搜索",
+            "description": "名称、用户名、IP 地址、域名或 URI。留空则只建立连接。"
+          }
+        }
+      }
+    }
   }
 }
